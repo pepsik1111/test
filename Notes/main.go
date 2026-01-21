@@ -19,10 +19,10 @@ var (
 func createNote(w http.ResponseWriter, r *http.Request) {
 	var n Note
 	json.NewDecoder(r.Body).Decode(&n)
-	notes = append(notes, n) 
+	notes = append(notes, n)
 	n.ID = NextId
 	json.NewEncoder(w).Encode(n)
-}	
+}
 
 func getNotes(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(notes)
@@ -30,6 +30,6 @@ func getNotes(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/create", createNote)
-	http.HandleFunc("/list", getNotes)
+	http.HandleFunc("/list", getNotes) //new comment
 	http.ListenAndServe(":8080", nil)
 }

@@ -45,7 +45,7 @@ func createNoteHandler(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(created)
 }
 
-//yjdsq rvvbn
+//yjdsq
 
 func main() {
 	http.HandleFunc("/create-note", createNoteHandler)
